@@ -117,7 +117,11 @@ Description: Deploy using an encrypted key (prompts for password).
 ### Deploy with Password File
 
 ```shell
-forge script script/<ScriptName>.s.sol --rpc-url $RPC_URL --account defaultKey --sender <PublicKeyAddress> --password-file .password --broadcast -vvvv
+forge script script/<ScriptName>.s.sol --rpc-url $RPC_URL --account defaultKey --password-file .password --broadcast -vvvv
+```
+
+```shell
+forge script script/<ScriptName>.s.sol --rpc-url $RPC_URL --account defaultKey --password-file .password --sender <PublicKeyAddress>  --broadcast -vvvv
 ```
 
 Description: Deploy using an encrypted key with password stored in a file.
@@ -128,6 +132,10 @@ Description: Deploy using an encrypted key with password stored in a file.
 
 ```shell
 cast send <ContractAddress> "functionName(type1,type2)" param1 param2 --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+```
+
+```shell
+cast send <ContractAddress> "functionName(type1,type2)" param1 param2 --rpc-url $RPC_URL --account defaultKey --password-file .password
 ```
 
 Description: Send a transaction to interact with a contract function.
@@ -183,6 +191,12 @@ forge create <ContractName> --rpc-url <ZKSyncRpcUrl> --zksync --legacy
 Description: Deploy a contract to a ZKSync local node.
 
 ### Start ZKSync Local Node
+
+```shell
+npx zksync-cli dev config
+# enter
+# enter
+```
 
 ```shell
 npx zksync-cli dev start
